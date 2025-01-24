@@ -9,7 +9,7 @@ import Foundation
 
 extension Decodable {
     
-    init?(json: String) {
+    public init?(json: String) {
         let decoder = JSONDecoder()
         do {
             guard let txt = json.data(using: .utf8) else { return nil }
@@ -20,7 +20,7 @@ extension Decodable {
         }
     }
     
-    init?(json: Data) {
+    public init?(json: Data) {
         let decoder = JSONDecoder()
         do {
             self = try decoder.decode(Self.self, from: json)

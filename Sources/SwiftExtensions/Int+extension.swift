@@ -6,11 +6,11 @@
 //
 
 extension Int {
-    var incremented: Int {
+    public var incremented: Int {
         self + 1
     }
 
-    var decremented: Int {
+    public var decremented: Int {
         self - 1
     }
 }

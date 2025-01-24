@@ -7,13 +7,13 @@
 import Foundation
 
 extension String {
-    var trimmed: String {
+    public var trimmed: String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 
 extension String {
-    func split(_ splitter: String) -> [String] {
+    public func split(_ splitter: String) -> [String] {
         self.components(separatedBy: splitter)
     }
 }

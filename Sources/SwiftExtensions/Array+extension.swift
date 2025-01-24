@@ -6,7 +6,7 @@
 //
 
 extension Array {
-    subscript(safeIndex index: Int) -> Element? {
+    public subscript(safeIndex index: Int) -> Element? {
         get {
             guard index >= 0, index < count else { return nil }
             return self[index]
@@ -20,7 +20,7 @@ extension Array {
 }
 
 extension Array where Element: Equatable {
-    var unique: [Element] {
+    public var unique: [Element] {
         var uniqueValues: [Element] = []
         forEach { item in
             guard !uniqueValues.contains(item) else { return }
@@ -31,7 +31,7 @@ extension Array where Element: Equatable {
 }
 
 extension Array where Element: Hashable {
-    func commonElements(with other: [Element]) -> [Element] {
+    public func commonElements(with other: [Element]) -> [Element] {
         Array(Set(self).intersection(Set(other)))
     }
 }

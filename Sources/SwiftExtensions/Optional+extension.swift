@@ -6,7 +6,7 @@
 //
 
 extension Optional {
-    var isNil: Bool {
+    public var isNil: Bool {
         switch self {
         case .none:
             return true
@@ -15,7 +15,7 @@ extension Optional {
         }
     }
 
-    var notNil: Bool {
+    public var notNil: Bool {
         !self.isNil
     }
 }
