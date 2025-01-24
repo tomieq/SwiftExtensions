@@ -1,0 +1,37 @@
+//
+//  Array+extension.swift
+//  SwiftExtensions
+//
+//  Created by Tomasz on 24/01/2025.
+//
+
+extension Array {
+    subscript(safeIndex index: Int) -> Element? {
+        get {
+            guard index >= 0, index < count else { return nil }
+            return self[index]
+        }
+
+        set(newValue) {
+            guard let value = newValue, index >= 0, index < count else { return }
+            self[index] = value
+        }
+    }
+}
+
+extension Array where Element: Equatable {
+    var unique: [Element] {
+        var uniqueValues: [Element] = []
+        forEach { item in
+            guard !uniqueValues.contains(item) else { return }
+            uniqueValues.append(item)
+        }
+        return uniqueValues
+    }
+}
+
+extension Array where Element: Hashable {
+    func commonElements(with other: [Element]) -> [Element] {
+        Array(Set(self).intersection(Set(other)))
+    }
+}
