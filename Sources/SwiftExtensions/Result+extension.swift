@@ -17,22 +17,16 @@ extension Result {
 }
 
 extension Result {
-    public func onSuccess(_ callback: (Success) -> Void) -> Self {
-        switch self {
-        case .success(let value):
-            callback(value)
-        case .failure:
-            break
-        }
+    @discardableResult
+    public func onSuccess(_ handler: (Success) -> ()) -> Self {
+        guard case let .success(value) = self else { return self }
+        handler(value)
         return self
     }
-    public func onFailure(_ callback: (Failure) -> Void) -> Self {
-        switch self {
-        case .success:
-            break
-        case .failure(let failure):
-            callback(failure)
-        }
+    @discardableResult
+    public func onFailure(_ handler: (Failure) -> ()) -> Self {
+        guard case let .failure(error) = self else { return self }
+        handler(error)
         return self
     }
 }
