@@ -30,3 +30,19 @@ extension Result {
         return self
     }
 }
+
+extension Result {
+    public var value: Success? {
+        guard case .success(let success) = self else {
+            return nil
+        }
+        return success
+    }
+    
+    public var error: Failure? {
+        guard case .failure(let failure) = self else {
+            return nil
+        }
+        return failure
+    }
+}
