@@ -35,3 +35,25 @@ extension Array where Element: Hashable {
         Array(Set(self).intersection(Set(other)))
     }
 }
+
+extension Array {
+    public func subArray(_ range: Range<Int>) -> [Element] {
+        Array(self[range])
+    }
+
+    public func subArray(_ range: ClosedRange<Int>) -> [Element] {
+        Array(self[range])
+    }
+
+    public func subArray(_ range: PartialRangeFrom<Int>) -> [Element] {
+        Array(self[range])
+    }
+
+    public func subArray(_ range: PartialRangeThrough<Int>) -> [Element] {
+        Array(self[range])
+    }
+
+    public func subArray(_ range: PartialRangeUpTo<Int>) -> [Element] {
+        Array(self[range])
+    }
+}
