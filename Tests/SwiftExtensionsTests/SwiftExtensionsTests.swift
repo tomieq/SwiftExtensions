@@ -12,3 +12,8 @@ import Foundation
     #expect(UInt8(0x21).hexString == "21")
     #expect(UInt8(0xFF).hexString == "ff")
 }
+
+@Test func uint16Hex() async throws {
+    #expect(UInt16(0x21).hexString == "0021")
+    #expect(UInt16(0x03FF).hexString == "03ff")
+}
