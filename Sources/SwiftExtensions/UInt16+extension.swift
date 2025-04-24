@@ -4,9 +4,14 @@
 //
 //  Created by Tomasz on 23/04/2025.
 //
+import Foundation
 
 extension UInt16 {
     public var hexString: String {
         String(format: "%04hx", self)
+    }
+    
+    public var data: Data {
+        Data([UInt8(self >> 8), UInt8(self & 0xFF)])
     }
 }
