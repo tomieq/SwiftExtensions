@@ -37,3 +37,11 @@ extension Data {
         [UInt8](self)
     }
 }
+
+extension Data {
+    public func appending(_ other: Data) -> Data {
+        var copy = self
+        copy.append(other)
+        return copy
+    }
+}

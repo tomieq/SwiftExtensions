@@ -1,12 +1,16 @@
 //
-//  Array+UInt8.swift
+//  Data+numbers.swift
 //  SwiftExtensions
 //
-//  Created by Tomasz on 24/04/2025.
+//  Created by Tomasz on 25/04/2025.
 //
+import Foundation
 
-extension Array where Element == UInt8 {
-    
+extension Data {
+    // big endian
+    public var uInt8: UInt8 {
+        UInt8(self[0])
+    }
     // big endian
     public var uInt16: UInt16 {
         UInt16(self[0]) << 8 + UInt16(self[1])

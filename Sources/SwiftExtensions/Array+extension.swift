@@ -38,22 +38,22 @@ extension Array where Element: Hashable {
 
 extension Array {
     public func subArray(_ range: Range<Int>) -> [Element] {
-        Array(self[range])
+        self[range].array
     }
 
     public func subArray(_ range: ClosedRange<Int>) -> [Element] {
-        Array(self[range])
+        self[range].array
     }
 
     public func subArray(_ range: PartialRangeFrom<Int>) -> [Element] {
-        Array(self[range])
+        self[range].array
     }
 
     public func subArray(_ range: PartialRangeThrough<Int>) -> [Element] {
-        Array(self[range])
+        self[range].array
     }
 
     public func subArray(_ range: PartialRangeUpTo<Int>) -> [Element] {
-        Array(self[range])
+        self[range].array
     }
 }
