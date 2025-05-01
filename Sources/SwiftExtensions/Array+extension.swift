@@ -7,6 +7,7 @@
 
 public enum ArrayError: Error {
     case cutError(String)
+    case outOfIndex
 }
 
 extension Array {
@@ -75,5 +76,32 @@ extension Array {
             throw ArrayError.cutError("Cannot cut array into \(parts) subarrays as the array length is not dividable by \(parts)")
         }
         return self.chunked(by: self.count / parts)
+    }
+}
+
+extension Array {
+    public var tuple: (Element, Element) {
+        get throws {
+            guard self.count > 1 else {
+                throw ArrayError.outOfIndex
+            }
+            return (self[0], self[1])
+        }
+    }
+    public var triple: (Element, Element, Element) {
+        get throws {
+            guard self.count > 2 else {
+                throw ArrayError.outOfIndex
+            }
+            return (self[0], self[1], self[2])
+        }
+    }
+    public var quadruple: (Element, Element, Element, Element) {
+        get throws {
+            guard self.count > 3 else {
+                throw ArrayError.outOfIndex
+            }
+            return (self[0], self[1], self[2], self[3])
+        }
     }
 }
