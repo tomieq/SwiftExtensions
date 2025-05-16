@@ -42,28 +42,6 @@ extension Array where Element: Hashable {
 }
 
 extension Array {
-    public func subArray(_ range: Range<Int>) -> [Element] {
-        self[range].array
-    }
-
-    public func subArray(_ range: ClosedRange<Int>) -> [Element] {
-        self[range].array
-    }
-
-    public func subArray(_ range: PartialRangeFrom<Int>) -> [Element] {
-        self[range].array
-    }
-
-    public func subArray(_ range: PartialRangeThrough<Int>) -> [Element] {
-        self[range].array
-    }
-
-    public func subArray(_ range: PartialRangeUpTo<Int>) -> [Element] {
-        self[range].array
-    }
-}
-
-extension Array {
     public func chunked(by chunkSize: Int) -> [[Element]] {
         return stride(from: 0, to: self.count, by: chunkSize).map {
             self[$0..<Swift.min($0 + chunkSize, self.count)].array
