@@ -33,13 +33,13 @@ import Foundation
 }
 
 @Test func uint16FromData() async throws {
-    #expect(Data([0x00, 0x21]).uInt16 == UInt16(0x21))
-    #expect(Data([0x03, 0xFF]).uInt16 == UInt16(0x03FF))
+    #expect(try Data([0x00, 0x21]).uInt16 == UInt16(0x21))
+    #expect(try Data([0x03, 0xFF]).uInt16 == UInt16(0x03FF))
 }
 
 @Test func uint32FromData() async throws {
-    #expect([0x00, 0x00, 0x00, 0x21].data.uInt32 == UInt32(0x21))
-    #expect([0x00, 0x00, 0x03, 0xFF].data.uInt32 == UInt32(0x03FF))
+    #expect(try [0x00, 0x00, 0x00, 0x21].data.uInt32 == UInt32(0x21))
+    #expect(try [0x00, 0x00, 0x03, 0xFF].data.uInt32 == UInt32(0x03FF))
 }
 
 @Test func dataToBytes() async throws {
