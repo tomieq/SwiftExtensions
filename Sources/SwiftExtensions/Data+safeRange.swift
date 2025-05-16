@@ -8,18 +8,18 @@ import Foundation
 
 extension Data {
     public func slice(_ range: Range<Int>) -> Data {
-        Data(self.bytes[range])
+        Data(self.bytes[safeRange: range])
     }
     public func slice(_ range: ClosedRange<Int>) -> Data {
-        Data(self.bytes[range])
+        Data(self.bytes[safeRange: range])
     }
     public func slice(_ range: PartialRangeFrom<Int>) -> Data {
-        Data(self.bytes[range])
+        Data(self.bytes[safeRange: range])
     }
     public func slice(_ range: PartialRangeThrough<Int>) -> Data {
-        Data(self.bytes[range])
+        Data(self.bytes[safeRange: range])
     }
     public func slice(_ range: PartialRangeUpTo<Int>) -> Data {
-        Data(self.bytes[range])
+        Data(self.bytes[safeRange: range])
     }
 }
