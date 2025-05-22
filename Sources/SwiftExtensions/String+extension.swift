@@ -42,3 +42,19 @@ extension String {
         return String(self[range])
     }
 }
+
+extension String {
+    public func removed(text: String) -> String {
+        self.replacingOccurrences(of: text, with: "")
+    }
+    
+    public var array: [String] {
+        self.map { String($0) }
+    }
+}
+
+extension String {
+    public var bytes: [UInt8] {
+        return [UInt8](self.utf8)
+    }
+}
