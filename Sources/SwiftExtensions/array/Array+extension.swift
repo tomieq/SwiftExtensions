@@ -83,3 +83,9 @@ extension Array {
         }
     }
 }
+
+public extension Array {
+    static var empty: [Element] {
+        []
+    }
+}

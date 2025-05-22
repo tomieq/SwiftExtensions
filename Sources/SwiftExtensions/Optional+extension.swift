@@ -34,11 +34,35 @@ public extension Optional {
         self as? T
     }
     
+    func map<T>(_ transform: (Wrapped) -> T) -> T? {
+        flatMap(transform)
+    }
+    
     func map<T>(_ transform: (Wrapped) throws -> T) -> T? {
         try? flatMap(transform)
     }
-    
-    func map<T>(_ transform: (Wrapped) -> T) -> T? {
-        flatMap(transform)
+}
+
+public extension Optional {
+    @discardableResult
+    func onValue(_ callback: (Wrapped) -> Void) -> Wrapped? {
+        switch self {
+        case .none:
+            break
+        case .some(let value):
+            callback(value)
+        }
+        return self
+    }
+
+    @discardableResult
+    func onNil(_ callback: () -> Void) -> Wrapped? {
+        switch self {
+        case .none:
+            callback()
+        case .some:
+            break
+        }
+        return self
     }
 }
