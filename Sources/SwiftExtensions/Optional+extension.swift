@@ -37,10 +37,6 @@ public extension Optional {
     func map<T>(_ transform: (Wrapped) -> T) -> T? {
         flatMap(transform)
     }
-    
-    func map<T>(_ transform: (Wrapped) throws -> T) -> T? {
-        try? flatMap(transform)
-    }
 }
 
 public extension Optional {
