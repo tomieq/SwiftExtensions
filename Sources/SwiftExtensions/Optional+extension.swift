@@ -26,7 +26,7 @@ public extension Optional {
     }
 }
 
-public extension Optional where Wrapped == Array<Any> {
+public extension Optional where Wrapped == any Collection {
     var orEmpty: Wrapped {
         return []
     }
