@@ -2,7 +2,7 @@
 //  DataConsumedTests.swift
 //  SwiftExtensions
 //
-//  Created by Tomasz KUCHARSKI on 16/05/2025.
+//  Created by Tomasz on 16/05/2025.
 //
 
 import Testing

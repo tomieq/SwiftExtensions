@@ -18,15 +18,20 @@ extension Result {
 
 extension Result {
     @discardableResult
-    public func onSuccess(_ handler: (Success) -> ()) -> Self {
+    public func onSuccess(_ handler: (Success) -> Void) -> Self {
         guard case let .success(value) = self else { return self }
         handler(value)
         return self
     }
     @discardableResult
-    public func onFailure(_ handler: (Failure) -> ()) -> Self {
+    public func onFailure(_ handler: (Failure) -> Void) -> Self {
         guard case let .failure(error) = self else { return self }
         handler(error)
+        return self
+    }
+    @discardableResult
+    public func always(_ handler: () -> Void) -> Self {
+        handler()
         return self
     }
 }
