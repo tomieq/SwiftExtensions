@@ -19,6 +19,14 @@ public extension Bool {
         }
         return self
     }
+
+    @discardableResult
+    func onTrue(_ closure: () throws -> Void) throws -> Self {
+        if self {
+            try closure()
+        }
+        return self
+    }
     
     @discardableResult
     func onFalse(_ closure: () -> Void) -> Self {
@@ -29,8 +37,22 @@ public extension Bool {
     }
     
     @discardableResult
+    func onFalse(_ closure: () throws -> Void) throws -> Self {
+        if not {
+            try closure()
+        }
+        return self
+    }
+    
+    @discardableResult
     func always(_ closure: () -> Void) -> Self {
         closure()
+        return self
+    }
+    
+    @discardableResult
+    func always(_ closure: () throws -> Void) throws -> Self {
+        try closure()
         return self
     }
 }
