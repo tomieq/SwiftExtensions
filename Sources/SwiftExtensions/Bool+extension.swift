@@ -10,3 +10,34 @@ extension Bool {
         !self
     }
 }
+
+public extension Bool {
+    @discardableResult
+    func whenTrue(_ closure: () -> Void) -> Self {
+        if self {
+            closure()
+        }
+        return self
+    }
+    
+    @discardableResult
+    func whenFalse(_ closure: () -> Void) -> Self {
+        if not {
+            closure()
+        }
+        return self
+    }
+}
+
+
+public extension Bool {
+    @discardableResult
+    func and(_ other: Bool) -> Bool {
+        self && other
+    }
+
+    @discardableResult
+    func or(_ other: Bool) -> Bool {
+        self || other
+    }
+}
