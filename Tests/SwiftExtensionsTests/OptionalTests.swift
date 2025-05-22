@@ -18,7 +18,7 @@ struct OptionalTests {
     }
     
     @Test func recover() {
-        var value = produce(5)
+        var value = produce(5).or(12)
         #expect(value == 5)
         value = produce(nil).or(10)
         #expect(value == 10)

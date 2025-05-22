@@ -22,12 +22,16 @@ extension Optional {
 
 public extension Optional {
     func or(_ value: Wrapped) -> Wrapped {
-        return value
+        self ?? value
     }
 }
 
-public extension Optional where Wrapped == any Collection {
-    var orEmpty: Wrapped {
-        return []
+public extension Optional {
+    func cast<T>(to: T.Type = T.self) -> T? {
+        self as? T
+    }
+    
+    func map<T>(_ transform: (Wrapped) throws -> T) -> T? {
+        try? flatMap(transform)
     }
 }
