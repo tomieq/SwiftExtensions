@@ -33,10 +33,6 @@ public extension Optional {
     func cast<T>(to: T.Type = T.self) -> T? {
         self as? T
     }
-    
-    func map<T>(_ transform: (Wrapped) -> T) -> T? {
-        flatMap(transform)
-    }
 }
 
 public extension Optional {

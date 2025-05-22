@@ -26,7 +26,7 @@ struct OptionalTests {
     
     @Test func onNil() {
         var flowControl: [Int] = .empty
-        produce(nil)
+        produce(nil).map { $0 * 2 }
             .onNil {
                 flowControl.append(-1)
             }
@@ -38,13 +38,13 @@ struct OptionalTests {
     
     @Test func onValue() {
         var flowControl: [Int] = .empty
-        produce(5)
+        produce(5).map { $0 * 2 }
             .onNil {
                 flowControl.append(-1)
             }
             .onValue { number in
                 flowControl.append(number)
             }
-        #expect(flowControl == [5])
+        #expect(flowControl == [10])
     }
 }
