@@ -50,12 +50,34 @@ public extension Optional {
         }
         return self
     }
-
+    
+    @discardableResult
+    func onValue(_ callback: (Wrapped) throws -> Void) throws -> Wrapped? {
+        switch self {
+        case .none:
+            break
+        case .some(let value):
+            try callback(value)
+        }
+        return self
+    }
+    
     @discardableResult
     func onNil(_ callback: () -> Void) -> Wrapped? {
         switch self {
         case .none:
             callback()
+        case .some:
+            break
+        }
+        return self
+    }
+    
+    @discardableResult
+    func onNil(_ callback: () throws -> Void) throws -> Wrapped? {
+        switch self {
+        case .none:
+            try callback()
         case .some:
             break
         }
