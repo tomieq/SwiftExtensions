@@ -19,3 +19,15 @@ extension Optional {
         !self.isNil
     }
 }
+
+public extension Optional {
+    func or(_ value: Wrapped) -> Wrapped {
+        return value
+    }
+}
+
+public extension Optional where Wrapped == Array<Any> {
+    var orEmpty: Wrapped {
+        return []
+    }
+}
