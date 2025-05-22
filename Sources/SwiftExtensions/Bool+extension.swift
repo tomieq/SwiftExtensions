@@ -13,7 +13,7 @@ extension Bool {
 
 public extension Bool {
     @discardableResult
-    func whenTrue(_ closure: () -> Void) -> Self {
+    func onTrue(_ closure: () -> Void) -> Self {
         if self {
             closure()
         }
@@ -21,10 +21,16 @@ public extension Bool {
     }
     
     @discardableResult
-    func whenFalse(_ closure: () -> Void) -> Self {
+    func onFalse(_ closure: () -> Void) -> Self {
         if not {
             closure()
         }
+        return self
+    }
+    
+    @discardableResult
+    func always(_ closure: () -> Void) -> Self {
+        closure()
         return self
     }
 }
