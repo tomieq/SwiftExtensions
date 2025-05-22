@@ -41,9 +41,19 @@ public extension Bool {
     func and(_ other: Bool) -> Bool {
         self && other
     }
-
+    
+    @discardableResult
+    func and(_ block: () -> Bool) -> Bool {
+        self && block()
+    }
+    
     @discardableResult
     func or(_ other: Bool) -> Bool {
         self || other
+    }
+    
+    @discardableResult
+    func or(_ block: () -> Bool) -> Bool {
+        self || block()
     }
 }

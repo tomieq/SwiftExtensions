@@ -24,6 +24,9 @@ public extension Optional {
     func or(_ value: Wrapped) -> Wrapped {
         self ?? value
     }
+    func or(_ block: () -> Wrapped) -> Wrapped {
+        self ?? block()
+    }
 }
 
 public extension Optional {
@@ -33,5 +36,9 @@ public extension Optional {
     
     func map<T>(_ transform: (Wrapped) throws -> T) -> T? {
         try? flatMap(transform)
+    }
+    
+    func map<T>(_ transform: (Wrapped) -> T) -> T? {
+        flatMap(transform)
     }
 }
