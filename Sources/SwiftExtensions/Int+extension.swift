@@ -24,3 +24,9 @@ extension Int {
         self -= 1
     }
 }
+
+public extension Int {
+    var isMax: Bool {
+        self == Int.max
+    }
+}

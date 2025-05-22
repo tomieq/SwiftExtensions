@@ -18,3 +18,9 @@ extension UInt32 {
               UInt8(self & 0xFF)])
     }
 }
+
+public extension UInt32 {
+    var isMax: Bool {
+        self == UInt32.max
+    }
+}

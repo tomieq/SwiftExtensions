@@ -15,3 +15,9 @@ extension UInt16 {
         Data([UInt8(self >> 8), UInt8(self & 0xFF)])
     }
 }
+
+public extension UInt16 {
+    var isMax: Bool {
+        self == UInt16.max
+    }
+}
