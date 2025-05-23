@@ -47,4 +47,18 @@ struct OptionalTests {
             }
         #expect(flowControl == [10])
     }
+    
+    @Test func initThrowing() {
+        enum SomeError: Error {
+            case invalid
+        }
+        func positive() throws -> Int {
+            5
+        }
+        func negative() throws -> Int {
+            throw SomeError.invalid
+        }
+        #expect(Optional{ try positive() }.or(10) == 5)
+        #expect(Optional{ try negative() }.or(10) == 10)
+    }
 }

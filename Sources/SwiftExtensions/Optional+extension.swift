@@ -84,3 +84,9 @@ public extension Optional {
         return self
     }
 }
+
+public extension Optional {
+    init(_ block: () throws -> Wrapped?) {
+        self = try? block()
+    }
+}
