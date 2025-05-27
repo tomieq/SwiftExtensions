@@ -22,3 +22,17 @@ public extension Array {
         return self
     }
 }
+
+public extension Array {
+    @discardableResult
+    func collect(_ closure: ([Element]) -> Void) -> Self {
+        closure(self)
+        return self
+    }
+
+    @discardableResult
+    func collect(_ closure: ([Element]) throws -> Void) throws -> Self {
+        try closure(self)
+        return self
+    }
+}

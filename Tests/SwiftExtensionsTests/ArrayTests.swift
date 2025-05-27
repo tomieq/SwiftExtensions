@@ -23,4 +23,14 @@ struct ArrayTests {
         }
         #expect(controlFlow == 1)
     }
+    
+    @Test func collect() {
+        var list = [1, 2, 3]
+        var controlFlow = 0
+        list.collect { elements in
+            controlFlow = 1
+            #expect(elements == list)
+        }
+        #expect(controlFlow == 1)
+    }
 }
