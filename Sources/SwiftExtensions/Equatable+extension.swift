@@ -22,4 +22,16 @@ public extension Equatable {
         }
         return self
     }
+    
+    @discardableResult
+    func always(_ closure: () -> Void) -> Self {
+        closure()
+        return self
+    }
+    
+    @discardableResult
+    func always(_ closure: () throws -> Void) throws -> Self {
+        try closure()
+        return self
+    }
 }
