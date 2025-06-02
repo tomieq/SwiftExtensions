@@ -90,3 +90,16 @@ public extension Optional {
         self = try? block()
     }
 }
+
+
+public extension Optional {
+    @discardableResult
+    func map<N>(_ callback: (Wrapped) -> N?) -> N? {
+        switch self {
+        case .none:
+            nil
+        case .some(let value):
+            callback(value)
+        }
+    }
+}

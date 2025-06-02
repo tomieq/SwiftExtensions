@@ -61,4 +61,12 @@ struct OptionalTests {
         #expect(Optional{ try positive() }.or(10) == 5)
         #expect(Optional{ try negative() }.or(10) == 10)
     }
+    
+    @Test func map() {
+        func converter(_ number: Int) -> Bool {
+            number.above(10)
+        }
+        let value = produce(5)
+        #expect(value.map { converter($0) } == false)
+    }
 }
