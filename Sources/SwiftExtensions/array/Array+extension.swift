@@ -95,3 +95,25 @@ public extension Array {
         self.compactMap { $0 }
     }
 }
+
+public extension Array {
+    func first(_ amount: Int) -> [Element] {
+        self.prefix(amount).array
+    }
+
+    func last(_ amount: Int) -> [Element] {
+        self.suffix(amount).array
+    }
+
+    func withoutFirst(_ amount: Int = 1) -> Array {
+        self.dropFirst(amount).array
+    }
+    
+    func withoutLast(_ amount: Int = 1) -> Array {
+        self.dropLast(amount).array
+    }
+
+    var reversed: [Element] {
+        self.reversed()
+    }
+}
