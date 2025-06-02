@@ -5,7 +5,7 @@
 //  Created by Tomasz on 19/03/2025.
 //
 
-extension String {
+public extension String {
     var decimal: Int? {
         Int(decimal: self)
     }
