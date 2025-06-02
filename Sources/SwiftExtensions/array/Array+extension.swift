@@ -89,3 +89,9 @@ public extension Array {
         []
     }
 }
+
+public extension Array {
+    func unpacked<T>() -> [T] where Element == Optional<T> {
+        self.compactMap { $0 }
+    }
+}

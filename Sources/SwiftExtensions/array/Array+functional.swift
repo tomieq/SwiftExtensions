@@ -36,3 +36,14 @@ public extension Array {
         return self
     }
 }
+
+public extension Array {
+    func tuple<N>(_ make: (Element) -> N?) -> [(Element, N)] {
+        self.compactMap {
+            guard let right = make($0) else {
+                return nil
+            }
+            return ($0, right)
+        }
+    }
+}
