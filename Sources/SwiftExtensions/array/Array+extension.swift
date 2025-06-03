@@ -117,3 +117,17 @@ public extension Array {
         self.reversed()
     }
 }
+
+public extension Array {
+    // creates windows out of an array
+    func windowed(by size: Int, offset: Int = 1) -> [[Element]] {
+        var result: [[Element]] = []
+        var index = 0
+        while index <= self.count - size {
+            let window = self.subArray(index..<index + size)
+            result.append(window)
+            index += offset
+        }
+        return result
+    }
+}
