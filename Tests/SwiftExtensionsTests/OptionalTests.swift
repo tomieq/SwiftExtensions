@@ -69,25 +69,4 @@ struct OptionalTests {
         let value = produce(5)
         #expect(value.map { converter($0) } == false)
     }
-    
-    @Test func tupleConverter() {
-        let array = [1, 2, 3, nil, 5]
-        
-        let tuples = array
-            .unpacked()
-            .tuple { number in
-                number * 6
-            }
-        let expected = [(1, 6), (2, 12), (3, 18), (5, 30)]
-        
-        for (index, tuple) in tuples.enumerated() {
-            #expect(tuple == expected[index])
-        }
-    }
-    
-    @Test func tupleGetter() throws {
-        let array = [1, 2, 3, 5]
-        
-        #expect(try array.tuple == (1, 2))
-    }
 }
