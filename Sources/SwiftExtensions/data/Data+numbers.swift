@@ -30,6 +30,15 @@ extension Data {
             return UInt16(self[startIndex]) << 8 + UInt16(self[startIndex + 1])
         }
     }
+    // big endian
+    public var uInt24: UInt24 {
+        get throws {
+            guard self.count > 2 else {
+                throw DataToNumberConvertError.notEnoughNumberOfBytes
+            }
+            return UInt24(Int(self[startIndex]) << 16 + Int(self[startIndex + 1]) << 8 + Int(self[startIndex + 2]))
+        }
+    }
 
     // big endian
     public var uInt32: UInt32 {
