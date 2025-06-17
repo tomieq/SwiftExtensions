@@ -21,4 +21,9 @@ struct DataConsumedTests {
         #expect(data.consume(bytes: 3) == Data())
         #expect(data == Data())
     }
+    
+    @Test func consumeGreedy() {
+        var data = Data([0, 1])
+        #expect(data.consume(bytes: 3) == Data([0, 1]))
+    }
 }

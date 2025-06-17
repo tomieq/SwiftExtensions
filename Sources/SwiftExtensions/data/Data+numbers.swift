@@ -8,6 +8,7 @@ import Foundation
 
 public enum DataToNumberConvertError: Error {
     case notEnoughNumberOfBytes
+    case tooManyOfBytes
 }
 
 extension Data {
@@ -37,6 +38,32 @@ extension Data {
                 throw DataToNumberConvertError.notEnoughNumberOfBytes
             }
             return UInt32(self[startIndex]) << 24 + UInt32(self[startIndex + 1]) << 16 + UInt32(self[startIndex + 2]) << 8 + UInt32(self[startIndex + 3])
+        }
+    }
+}
+
+extension Data {
+    // big endian, no strict checking for data lenght, just converting to Int
+    public var int: Int {
+        get throws {
+            guard self.isEmpty.not else {
+                throw DataToNumberConvertError.notEnoughNumberOfBytes
+            }
+            let bytes = self.bytes
+            switch count {
+            case 1:
+                return Int(bytes[0])
+            case 2:
+                return Int(bytes[0]) << 8 + Int(bytes[1])
+            case 3:
+                return Int(bytes[0]) << 16 + Int(bytes[1]) << 8 + Int(bytes[2])
+            case 4:
+                let high = Int(bytes[0]) << 24 + Int(bytes[1]) << 16
+                let low = Int(bytes[2]) << 8 + Int(bytes[3])
+                return high + low
+            default:
+                throw DataToNumberConvertError.tooManyOfBytes
+            }
         }
     }
 }
