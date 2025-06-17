@@ -7,15 +7,15 @@
 import Foundation
 
 public struct UInt24 {
-    public let value: Int
+    public let int: Int
     
     public init(_ value: Int) {
-        self.value = value
+        self.int = value
     }
     
     public var data: Data {
-        Data([UInt8(value >> 16 & 0xFF),
-              UInt8(value >> 8 & 0xFF),
-              UInt8(value & 0xFF)])
+        Data([UInt8(int >> 16 & 0xFF),
+              UInt8(int >> 8 & 0xFF),
+              UInt8(int & 0xFF)])
     }
 }

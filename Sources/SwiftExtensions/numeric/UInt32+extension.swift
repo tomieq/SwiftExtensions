@@ -24,3 +24,9 @@ public extension UInt32 {
         self == UInt32.max
     }
 }
+
+public extension UInt32 {
+    var int: Int {
+        Int(self)
+    }
+}

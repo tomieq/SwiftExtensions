@@ -21,3 +21,9 @@ public extension UInt8 {
         self == UInt8.max
     }
 }
+
+public extension UInt8 {
+    var int: Int {
+        Int(self)
+    }
+}
