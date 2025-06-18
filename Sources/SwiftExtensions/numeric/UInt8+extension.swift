@@ -27,3 +27,9 @@ public extension UInt8 {
         Int(self)
     }
 }
+
+public extension UInt8 {
+    func isBitSet(mask: UInt8) -> Bool {
+        self & mask == mask
+    }
+}
