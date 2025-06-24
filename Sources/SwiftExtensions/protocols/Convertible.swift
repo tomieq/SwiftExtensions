@@ -10,6 +10,12 @@ extension Convertible {
     public func convert<T>(converter: (Self) -> T) -> T {
         converter(self)
     }
+    public func convert<T>(converter: (Self) -> T?) -> T? {
+        converter(self)
+    }
+    public func convert<T>(converter: (Self) throws -> T) throws -> T {
+        try converter(self)
+    }
 
     public func map<T>(converter: (Self) -> T) -> T {
         converter(self)
