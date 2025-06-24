@@ -7,6 +7,10 @@
 
 public protocol Convertible {}
 extension Convertible {
+    public func convert<T>(converter: (Self) -> T) -> T {
+        converter(self)
+    }
+
     public func map<T>(converter: (Self) -> T) -> T {
         converter(self)
     }
