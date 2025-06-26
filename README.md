@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "MyServer",
     dependencies: [
-        .package(url: "https://github.com/tomieq/SwiftExtensions", branch: "master")
+        .package(url: "https://github.com/tomieq/SwiftExtensions", .upToNextMajor(from: "1.0.0"))
     ]
 )
 ```

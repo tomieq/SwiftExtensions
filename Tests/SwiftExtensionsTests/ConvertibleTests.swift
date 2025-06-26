@@ -21,7 +21,7 @@ struct ConvertibleTests {
         }
         
         let user = User(login: "John")
-        let carUser = user.map {
+        let carUser = user.convert {
             CarUser(login: $0.login, licenceID: "WA 89000")
         }
         #expect(carUser.login == user.login)
