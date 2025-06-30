@@ -8,7 +8,7 @@ import Foundation
 
 extension UInt32 {
     public var hexString: String {
-        String(format: "%08x", self)
+        String(format: "%08X", self)
     }
     
     public var data: Data {

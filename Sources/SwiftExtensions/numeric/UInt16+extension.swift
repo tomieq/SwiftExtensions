@@ -8,7 +8,7 @@ import Foundation
 
 extension UInt16 {
     public var hexString: String {
-        String(format: "%04hx", self)
+        String(format: "%04hX", self)
     }
     
     public var data: Data {

@@ -8,14 +8,18 @@ import Foundation
     #expect(Data(hexString: hex) == expected)
 }
 
+@Test func dataHex() async throws {
+    #expect(Data([0x21, 0xFF]).hexString == "21FF")
+}
+
 @Test func uint8Hex() async throws {
     #expect(UInt8(0x21).hexString == "21")
-    #expect(UInt8(0xFF).hexString == "ff")
+    #expect(UInt8(0xFF).hexString == "FF")
 }
 
 @Test func uint16Hex() async throws {
     #expect(UInt16(0x21).hexString == "0021")
-    #expect(UInt16(0x03FF).hexString == "03ff")
+    #expect(UInt16(0x03FF).hexString == "03FF")
 }
 
 @Test func uint32Hex() async throws {

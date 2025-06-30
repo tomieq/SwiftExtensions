@@ -30,7 +30,7 @@ extension Data {
     }
 
     public var hexString: String {
-        self.map{ String(format: "%02hhx", $0).uppercased() }.joined()
+        self.map{ String(format: "%02hhX", $0) }.joined()
     }
     
     public var bytes: [UInt8] {
