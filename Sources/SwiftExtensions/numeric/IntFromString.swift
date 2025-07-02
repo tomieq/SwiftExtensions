@@ -9,7 +9,7 @@ import Foundation
 
 extension Int {
     public var hex: String {
-        String(self, radix: 16)
+        String(self, radix: 16).uppercased()
     }
 
     public var binary: String {
