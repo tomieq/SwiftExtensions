@@ -45,3 +45,11 @@ extension Data {
         return copy
     }
 }
+
+// helpul to change little-endian to big-endian and the other direction
+// useful when you operate on Int values in binary format
+public extension Data {
+    var swappedBytes: Data {
+        Data(self.reversed())
+    }
+}
