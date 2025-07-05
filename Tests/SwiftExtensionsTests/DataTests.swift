@@ -23,4 +23,10 @@ struct DataTests {
         #expect(try Data([0xc, 0x2, 0xd, 0x3]).int == 201460995)
         #expect(try Data([0xc, 0x2, 0xd, 0x3]).uInt32 == 201460995)
     }
+    
+    @Test func swapBytes() throws {
+        let number = UInt32(678)
+        print("little endian: \(number.bigEndian)")
+        #expect(try number.bigEndian == number.data.swappedBytes.uInt32)
+    }
 }

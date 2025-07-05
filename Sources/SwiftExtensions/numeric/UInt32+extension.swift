@@ -11,6 +11,7 @@ extension UInt32 {
         String(format: "%08X", self)
     }
     
+    // big endian bytes
     public var data: Data {
         Data([UInt8(self >> 24 & 0xFF),
               UInt8(self >> 16 & 0xFF),

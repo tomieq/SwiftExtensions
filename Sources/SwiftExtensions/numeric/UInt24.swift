@@ -13,6 +13,7 @@ public struct UInt24 {
         self.int = value
     }
     
+    // big endian bytes
     public var data: Data {
         Data([UInt8(int >> 16 & 0xFF),
               UInt8(int >> 8 & 0xFF),
