@@ -9,6 +9,9 @@ import Foundation
 
 extension Data {
     mutating public func consume(bytes: Int) -> Data {
+        guard bytes > 0 else {
+            return Data()
+        }
         let consumed = self.slice(..<bytes)
         self = slice(bytes...)
         return consumed
