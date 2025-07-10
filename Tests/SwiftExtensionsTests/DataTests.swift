@@ -29,4 +29,19 @@ struct DataTests {
         print("little endian: \(number.bigEndian)")
         #expect(try number.bigEndian == number.data.swappedBytes.uInt32)
     }
+    
+    @Test func appendingNumbers() throws {
+        let data = Data(hexString: "A0")
+            .appending(5.uInt8)
+            .appending(8.uInt16)
+            .appending(3.uInt24)
+            .appending(9.uInt32)
+        #expect(data.hexString == "A005000800000300000009")
+        let aliased = Data(hexString: "A0")
+            .appending(asOneByte: 5)
+            .appending(asTwoBytes: 8)
+            .appending(asThreeBytes: 3)
+            .appending(asFourBytes: 9)
+        #expect(aliased.hexString == "A005000800000300000009")
+    }
 }
