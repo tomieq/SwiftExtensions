@@ -43,3 +43,19 @@ public extension Int {
         return Data(bytes)
     }
 }
+
+// convenient converters
+public extension Int {
+    var uInt8: UInt8 {
+        UInt8(truncatingIfNeeded: self)
+    }
+    var uInt16: UInt16 {
+        UInt16(truncatingIfNeeded: self)
+    }
+    var uInt24: UInt24 {
+        UInt24(self)
+    }
+    var uInt32: UInt32 {
+        UInt32(truncatingIfNeeded: self)
+    }
+}
