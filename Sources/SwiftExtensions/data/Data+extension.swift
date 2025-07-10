@@ -38,6 +38,10 @@ extension Data {
     }
 }
 
+extension Data: DataConvertible {
+    public var data: Data { self }
+}
+
 // helpul to change little-endian to big-endian and the other direction
 // useful when you operate on Int values in binary format
 public extension Data {

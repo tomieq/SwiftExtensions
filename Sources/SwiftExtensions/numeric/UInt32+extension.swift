@@ -10,7 +10,9 @@ extension UInt32 {
     public var hexString: String {
         String(format: "%08X", self)
     }
-    
+}
+
+extension UInt32: DataConvertible {
     // big endian bytes
     public var data: Data {
         Data([UInt8(self >> 24 & 0xFF),

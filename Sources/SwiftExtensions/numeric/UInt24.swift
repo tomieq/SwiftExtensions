@@ -12,7 +12,9 @@ public struct UInt24 {
     public init(_ value: Int) {
         self.int = value
     }
-    
+}
+
+extension UInt24: DataConvertible {
     // big endian bytes
     public var data: Data {
         Data([UInt8(int >> 16 & 0xFF),

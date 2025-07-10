@@ -10,7 +10,9 @@ extension UInt8 {
     public var hexString: String {
         String(format: "%02hhX", self)
     }
-    
+}
+
+extension UInt8: DataConvertible {
     public var data: Data {
         Data([self])
     }

@@ -10,7 +10,9 @@ extension UInt16 {
     public var hexString: String {
         String(format: "%04hX", self)
     }
+}
 
+extension UInt16: DataConvertible {
     // big endian bytes order
     public var data: Data {
         Data([UInt8(self >> 8), UInt8(self & 0xFF)])

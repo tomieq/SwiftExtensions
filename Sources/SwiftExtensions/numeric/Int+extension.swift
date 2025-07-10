@@ -32,9 +32,9 @@ public extension Int {
     }
 }
 
-public extension Int {
+extension Int: DataConvertible {
     /// converts Int do Data (big-endian), with minimal byte number
-    var data: Data {
+    public var data: Data {
         var bytes: [UInt8] = []
         repeat {
             let byte = UInt8(truncatingIfNeeded: self >> ((bytes.count) * 8))
