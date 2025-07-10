@@ -1,5 +1,5 @@
 //
-//  Enum+Equatable.swift
+//  Enum+compare.swift
 //  SwiftExtensions
 //
 //  Created by Tomasz Kucharski on 10/07/2025.
