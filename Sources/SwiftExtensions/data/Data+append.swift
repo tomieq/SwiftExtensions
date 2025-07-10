@@ -8,29 +8,14 @@
 import Foundation
 
 public extension Data {
-    func appending(_ other: Data) -> Data {
-        var copy = self
-        copy.append(other)
-        return copy
-    }
-    func appending(_ other: UInt8) -> Data {
-        var copy = self
-        copy.append(other)
-        return copy
-    }
-    func appending(_ other: UInt16) -> Data {
+    func appending(_ other: DataConvertible) -> Data {
         var copy = self
         copy.append(other.data)
         return copy
     }
-    func appending(_ other: UInt24) -> Data {
+    func appending<T>(_ other: any RawRepresentable<T>) -> Data where T: DataConvertible {
         var copy = self
-        copy.append(other.data)
-        return copy
-    }
-    func appending(_ other: UInt32) -> Data {
-        var copy = self
-        copy.append(other.data)
+        copy.append(other.rawValue.data)
         return copy
     }
     // aliases
@@ -60,5 +45,8 @@ public extension Data {
     }
     mutating func append(asFourBytes number: Int) {
         append(number.uInt32.data)
+    }
+    mutating func append<T>(_ other: any RawRepresentable<T>) where T: DataConvertible {
+        self.append(other.rawValue.data)
     }
 }

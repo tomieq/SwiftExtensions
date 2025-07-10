@@ -44,4 +44,49 @@ struct DataTests {
             .appending(asFourBytes: 9)
         #expect(aliased.hexString == "A005000800000300000009")
     }
+    @Test func appendEnumUInt8() throws {
+        enum TestEnum: UInt8 {
+            case five = 5
+            case six = 6
+        }
+        var data = Data()
+        data.append(TestEnum.five)
+        data.append(TestEnum.six)
+        #expect(data.hexString == "0506")
+        
+        let onTheFly = Data()
+            .appending(TestEnum.five)
+            .appending(TestEnum.six)
+        #expect(onTheFly.hexString == "0506")
+    }
+    @Test func appendEnumUInt16() throws {
+        enum TestEnum: UInt16 {
+            case five = 5
+            case six = 6
+        }
+        var data = Data()
+        data.append(TestEnum.five)
+        data.append(TestEnum.six)
+        #expect(data.hexString == "00050006")
+        
+        let onTheFly = Data()
+            .appending(TestEnum.five)
+            .appending(TestEnum.six)
+        #expect(onTheFly.hexString == "00050006")
+    }
+    @Test func appendEnumUInt32() throws {
+        enum TestEnum: UInt32 {
+            case five = 5
+            case six = 6
+        }
+        var data = Data()
+        data.append(TestEnum.five)
+        data.append(TestEnum.six)
+        #expect(data.hexString == "0000000500000006")
+        
+        let onTheFly = Data()
+            .appending(TestEnum.five)
+            .appending(TestEnum.six)
+        #expect(onTheFly.hexString == "0000000500000006")
+    }
 }
