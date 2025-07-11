@@ -30,6 +30,14 @@ public extension RawRepresentable where RawValue == UInt32 {
         self.init(rawValue: number)
     }
 }
+public extension RawRepresentable where RawValue == UInt64 {
+    init?(data: Data) {
+        guard let number = try? data.uInt64 else {
+            return nil
+        }
+        self.init(rawValue: number)
+    }
+}
 public extension RawRepresentable where RawValue == Int {
     init?(data: Data) {
         guard let number = try? data.int else {

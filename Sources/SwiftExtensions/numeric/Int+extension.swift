@@ -58,4 +58,7 @@ public extension Int {
     var uInt32: UInt32 {
         UInt32(truncatingIfNeeded: self)
     }
+    var uInt64: UInt64 {
+        UInt64(truncatingIfNeeded: self)
+    }
 }

@@ -28,6 +28,13 @@ public extension Data {
     static func == (lhs: Self, rhs: UInt32) -> Bool {
         (try? lhs.uInt32) == rhs
     }
+    // Data and UInt64 comparison
+    static func == (lhs: UInt64, rhs: Self) -> Bool {
+        lhs == (try? rhs.uInt64)
+    }
+    static func == (lhs: Self, rhs: UInt64) -> Bool {
+        (try? lhs.uInt64) == rhs
+    }
     // Data and Int comparison
     static func == (lhs: Int, rhs: Self) -> Bool {
         lhs == (try? rhs.int)

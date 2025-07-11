@@ -46,7 +46,20 @@ extension Data {
             guard self.count > 3 else {
                 throw DataToNumberConvertError.notEnoughNumberOfBytes(expected: 4, actual: count)
             }
-            return UInt32(self[startIndex]) << 24 + UInt32(self[startIndex + 1]) << 16 + UInt32(self[startIndex + 2]) << 8 + UInt32(self[startIndex + 3])
+            return self.prefix(4).reduce(UInt32(0)) { (result, byte) in
+                (result << 8) | UInt32(byte)
+            }
+        }
+    }
+    // bytes need to be in big endian order, if not, use Data.swappedBytes
+    public var uInt64: UInt64 {
+        get throws {
+            guard self.count > 7 else {
+                throw DataToNumberConvertError.notEnoughNumberOfBytes(expected: 4, actual: count)
+            }
+            return self.prefix(8).reduce(UInt64(0)) { (result, byte) in
+                (result << 8) | UInt64(byte)
+            }
         }
     }
 }
