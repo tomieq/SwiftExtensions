@@ -30,3 +30,9 @@ public extension UInt16 {
         Int(self)
     }
 }
+
+public extension UInt16 {
+    func isBitSet(mask: UInt16) -> Bool {
+        self & mask == mask
+    }
+}
