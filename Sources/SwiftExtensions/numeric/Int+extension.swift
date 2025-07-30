@@ -62,3 +62,18 @@ public extension Int {
         UInt64(truncatingIfNeeded: self)
     }
 }
+
+public extension Int {
+    func greatestCommonDivisor(with other: Int) -> Int {
+        var x = 0
+        var y = Swift.max(self, other)
+        var z = Swift.min(self, other)
+
+        while z != 0 {
+           x = y
+           y = z
+           z = x % y
+        }
+        return y
+    }
+}
