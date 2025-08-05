@@ -25,6 +25,24 @@ public extension Array {
 
 public extension Array {
     @discardableResult
+    func onValues(_ closure: ([Element]) -> Void) -> Self {
+        if isEmpty.not {
+            closure(self)
+        }
+        return self
+    }
+
+    @discardableResult
+    func onValues(_ closure: ([Element]) throws -> Void) throws -> Self {
+        if isEmpty.not {
+            try closure(self)
+        }
+        return self
+    }
+}
+
+public extension Array {
+    @discardableResult
     func collect(_ closure: ([Element]) -> Void) -> Self {
         closure(self)
         return self
