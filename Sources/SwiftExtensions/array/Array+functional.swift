@@ -101,3 +101,38 @@ public extension Array {
         }
     }
 }
+
+public extension Array {
+    func compactZip<N>(_ make: (Element) throws -> N?) -> [(Element, N)] {
+        self.compactMap {
+            guard let right = try? make($0) else {
+                return nil
+            }
+            return ($0, right)
+        }
+    }
+    
+    func compactZip<A, B, N>(_ make: (A, B) throws -> N?) -> [(A, B, N)] where Element == (A, B) {
+        compactMap { pair in
+            let (a, b) = pair
+            guard let n = try? make(a, b) else { return nil }
+            return (a, b, n)
+        }
+    }
+    
+    func compactZip<A, B, C, N>(_ make: (A, B, C) throws -> N?) -> [(A, B, C, N)] where Element == (A, B, C) {
+        compactMap { combo in
+            let (a, b, c) = combo
+            guard let n = try? make(a, b, c) else { return nil }
+            return (a, b, c, n)
+        }
+    }
+    
+    func compactZip<A, B, C, D, N>(_ make: (A, B, C, D) throws -> N?) -> [(A, B, C, D, N)] where Element == (A, B, C, D) {
+        compactMap { combo in
+            let (a, b, c, d) = combo
+            guard let n = try? make(a, b, c, d) else { return nil }
+            return (a, b, c, d, n)
+        }
+    }
+}
