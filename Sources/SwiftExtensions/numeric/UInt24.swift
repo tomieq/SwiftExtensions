@@ -36,21 +36,28 @@ public extension UInt24 {
 }
 
 extension UInt24: RawRepresentable {
-    public init?(rawValue: Data) {
-        guard let value = try? rawValue.int else { return nil }
-        int = value
+    public typealias RawValue = Int
+    
+    public init?(rawValue: Int) {
+        int = rawValue
     }
     
-    public var rawValue: Data {
-        self.data
+    public var rawValue: Int {
+        self.int
     }
-    
-    public typealias RawValue = Data
 }
 
 extension UInt24: Equatable {}
 extension UInt24: Comparable {
     public static func < (lhs: UInt24, rhs: UInt24) -> Bool {
         lhs.int < rhs.int
+    }
+}
+
+extension UInt24: ExpressibleByIntegerLiteral {
+    public typealias IntegerLiteralType = Int
+
+    public init(integerLiteral value: Int) {
+        self.int = value
     }
 }
