@@ -131,3 +131,9 @@ public extension Array {
         return result
     }
 }
+
+public extension Array where Element: Hashable {
+    var set: Set<Element> {
+        Set(self)
+    }
+}
