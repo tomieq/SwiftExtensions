@@ -12,3 +12,9 @@ public extension Set {
         Array(self)
     }
 }
+
+public extension Set {
+    static var empty: Self {
+        Set()
+    }
+}
