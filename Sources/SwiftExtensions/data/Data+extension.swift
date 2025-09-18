@@ -33,7 +33,7 @@ extension Data {
         self.map{ String(format: "%02hhX", $0) }.joined()
     }
     
-    public var bytes: [UInt8] {
+    public var array: [UInt8] {
         [UInt8](self)
     }
 }

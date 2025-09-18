@@ -22,18 +22,18 @@ extension Data {
 
 extension Data {
     public subscript(safeRange range: Range<Int>) -> Data {
-        Data(self.bytes[safeRange: range])
+        Data(self.array[safeRange: range])
     }
     public subscript(safeRange range: ClosedRange<Int>) -> Data {
-        Data(self.bytes[safeRange: range])
+        Data(self.array[safeRange: range])
     }
     public subscript(safeRange range: PartialRangeFrom<Int>) -> Data {
-        Data(self.bytes[safeRange: range])
+        Data(self.array[safeRange: range])
     }
     public subscript(safeRange range: PartialRangeThrough<Int>) -> Data {
-        Data(self.bytes[safeRange: range])
+        Data(self.array[safeRange: range])
     }
     public subscript(safeRange range: PartialRangeUpTo<Int>) -> Data {
-        Data(self.bytes[safeRange: range])
+        Data(self.array[safeRange: range])
     }
 }
