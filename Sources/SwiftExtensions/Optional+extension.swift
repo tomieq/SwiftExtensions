@@ -21,12 +21,10 @@ extension Optional {
 }
 
 public extension Optional {
-    func or(_ value: Wrapped) -> Wrapped {
-        self ?? value
-    }
-    func or(_ block: () -> Wrapped) -> Wrapped {
+    func or(_ block: @autoclosure () -> Wrapped) -> Wrapped {
         self ?? block()
     }
+
     func orThrow(_ error: @autoclosure () -> Error) throws -> Wrapped {
         guard let value = self else { throw error() }
         return value

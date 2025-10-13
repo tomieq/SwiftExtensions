@@ -69,4 +69,23 @@ struct OptionalTests {
         let value = produce(5)
         #expect(value.map { converter($0) } == false)
     }
+    
+    @Test func or() {
+        var leftExecuted = false
+        var rightExecuted = false
+
+        func left() -> String? {
+            leftExecuted = true
+            return "left"
+        }
+        func right() -> String {
+            rightExecuted = true
+            return "right"
+        }
+        
+        let final = left().or(right())
+        #expect(final == "left")
+        #expect(leftExecuted == true)
+        #expect(rightExecuted == false)
+    }
 }
