@@ -77,3 +77,12 @@ public extension Int {
         return y
     }
 }
+
+public extension Int {
+    var uuid: UUID {
+        guard self >= 0 else { return UUID(uuidString: "00000000-0000-0000-0000-000000000000")! }
+
+        let suffix = String(format: "%012x", self)
+        return UUID(uuidString: "00000000-0000-0000-0000-\(suffix)")!
+    }
+}
