@@ -8,10 +8,14 @@
 import Foundation
 
 extension Encodable {
-    public var json: String? {
+    public var jsonData: Data? {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-        if let data = try? encoder.encode(self) {
+        return try? encoder.encode(self)
+    }
+
+    public var json: String? {
+        if let data = self.jsonData {
             return String(data: data, encoding: .utf8)
         }
         return nil
